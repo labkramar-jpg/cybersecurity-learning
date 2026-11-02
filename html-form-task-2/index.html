@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Converter Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            background-color: white;
+            margin: 20px;
+        }
+
+        .container {
+            width: 760px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 0 0 8px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #5076b8;
+        }
+
+        .navigation {
+            margin-bottom: 45px;
+            font-size: 13px;
+        }
+
+        .navigation a {
+            color: #3465bd;
+            text-decoration: none;
+        }
+
+        .navigation a.admin {
+            color: purple;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5px 8px;
+            vertical-align: middle;
+        }
+
+        .label-cell {
+            width: 160px;
+            white-space: nowrap;
+        }
+
+        .field-cell {
+            width: auto;
+        }
+
+        input[type="text"] {
+            height: 23px;
+            box-sizing: border-box;
+            border: 1px solid #999;
+            padding: 2px 4px;
+        }
+
+        select {
+            height: 25px;
+            border: 1px solid #999;
+            background-color: #f5f5f5;
+        }
+
+        .wide-input {
+            width: 395px;
+        }
+
+        .medium-input {
+            width: 250px;
+        }
+
+        .small-input {
+            width: 175px;
+        }
+
+        .section-divider td {
+            padding-top: 15px;
+            padding-bottom: 10px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #999;
+            margin: 0;
+        }
+
+        .required {
+            color: black;
+        }
+
+        .format-label,
+        .format-option {
+            color: #b74b4b;
+        }
+
+        .radio-options {
+            white-space: nowrap;
+        }
+
+        textarea {
+            width: 350px;
+            height: 85px;
+            box-sizing: border-box;
+            resize: vertical;
+            border: 1px solid #999;
+        }
+
+        .file-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-container {
+            border: 1px solid #999;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .file-path {
+            width: 285px;
+        }
+
+        button {
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .date-input {
+            width: 175px;
+        }
+
+        .form-row {
+            height: 32px;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: 2px solid #5076b8;
+            outline-offset: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Dynamic Converter New HTML Conversion Template Form</h2>
+
+        <div class="navigation">
+            <a href="#">Administration</a>
+            --&gt;
+            <a href="#" class="admin">Dynamic Converter Admin</a>
+            --&gt;
+            Dynamic Converter New HTML Conversion Template Form
+        </div>
+
+        <div class="form-container">
+            <form>
+
+                <table>
+
+                    <!-- SECTION 1: MAIN INFORMATION -->
+
+                    <tr class="section-divider">
+                        <td>
+                            <hr class="divider">
+                        </td>
+                        <td>
+                            <hr class="divider">
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">
+                            <span class="required">*</span> Content ID
+                        </td>
+                        <td class="field-cell">
+                            <input type="text" name="contentId" class="wide-input">
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">
+                            <span class="required">*</span> Type
+                        </td>
+                        <td>
+                            <select name="type" class="wide-input">
+                                <option value="ADACCT">
+                                    ADACCT - Acme Accounting Department
+                                </option>
+                                <option value="HR">Human Resources</option>
+                                <option value="IT">IT Department</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">
+                            <span class="required">*</span> Title
+                        </td>
+                        <td>
+                            <input type="text" name="title" class="wide-input">
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">
+                            <span class="required">*</span> Filer
+                        </td>
+                        <td>
+                            <input type="text" id="filer" name="filer" class="medium-input" value="sysadmin">
+
+                            <select id="filerUser" name="filerUser" class="small-input">
+                                <option value="sysadmin">sysadmin</option>
+                                <option value="admin">admin</option>
+                                <option value="user">user</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">
+                            <span class="required">*</span> Security Group
+                        </td>
+                        <td>
+                            <select name="securityGroup">
+                                <option value="public">Public</option>
+                                <option value="private">Private</option>
+                                <option value="restricted">Restricted</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- SECTION 2: TEMPLATE FORMAT -->
+
+                    <tr class="section-divider">
+                        <td>
+                            <hr class="divider">
+                        </td>
+                        <td>
+                            <hr class="divider">
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell format-label">
+                            Template Format
+                        </td>
+
+                        <td class="radio-options">
+                            <label class="format-option">
+                                <input type="radio" name="templateFormat" value="html" checked>
+                                HTML Conversion Template
+                            </label>
+
+                            <label class="format-option">
+                                <input type="radio" name="templateFormat" value="classic">
+                                Classic HTML Conversion Template
+                            </label>
+                        </td>
+                    </tr>
+
+                    <!-- SECTION 3: ADDITIONAL INFORMATION -->
+
+                    <tr class="section-divider">
+                        <td>
+                            <hr class="divider">
+                        </td>
+                        <td>
+                            <hr class="divider">
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">
+                            <span class="required">*</span> Revision
+                        </td>
+                        <td>
+                            <input type="text" name="revision" value="1" class="medium-input">
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">Folder</td>
+                        <td>
+                            <div class="file-row">
+                                <input type="text" name="folder" class="file-path">
+
+                                <button type="button">Browse...</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">Hidden</td>
+                        <td>
+                            <select name="hidden">
+                                <option value=""></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-cell">Comments</td>
+                        <td>
+                            <textarea name="comments"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-cell">User Access List</td>
+                        <td>
+                            <textarea name="userAccessList"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label-cell">Trash Delete Old Name</td>
+                        <td>
+                            <textarea name="trashDeleteOldName"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">Trash Delete Location</td>
+                        <td>
+                            <div class="file-row">
+                                <input type="text" name="trashDeleteLocation" class="file-path">
+
+                                <button type="button">Browse...</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">Trash Delete Date</td>
+                        <td>
+                            <input type="date" name="trashDeleteDate" class="date-input">
+                        </td>
+                    </tr>
+
+                    <tr class="form-row">
+                        <td class="label-cell">Trash Deleter</td>
+                        <td>
+                            <input type="text" name="trashDeleter" class="medium-input">
+                        </td>
+                    </tr>
+
+                </table>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        const filerInput = document.getElementById('filer');
+        const filerSelect = document.getElementById('filerUser');
+
+        filerSelect.addEventListener('change', function () {
+            filerInput.value = filerSelect.value;
+        });
+    </script>
+</body>
+
+</html>

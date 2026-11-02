@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Form Task</title>
+    <style>
+        th {
+            background-color: #CCCCFF;
+        }
+
+        .button-cell {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 500px;
+            border: 1px solid gray;
+            border-spacing: 3px;
+        }
+
+        th,
+        td {
+            border: 1px solid gray;
+            padding: 4px;
+        }
+
+        input[type="text"] {
+            width: 95%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Sex</td>
+                <td>
+                    <label>
+                        <input type="radio" name="gender" value="male"> Male
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="gender" value="female" checked> Female
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Eye color</td>
+                <td>
+                    <select name="eyeColor">
+                        <option value="blue">Blue</option>
+                        <option value="green" selected>Green</option>
+                        <option value="brown">Brown</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Check all that apply</td>
+                <td>
+                    <label>
+                        <input type="checkbox" name="feature" value="Over 6 feet tall">
+                        Over 6 feet tall
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="feature" value="Over 200 pounds">
+                        Over 200 pounds
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Describe your athletic ability:</td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea name="description" rows="4" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="button-cell">
+                    <button type="submit">Enter my information</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
