@@ -293,16 +293,22 @@
                         </td>
                     </tr>
 
+
                     <tr class="form-row">
                         <td class="label-cell">Folder</td>
                         <td>
                             <div class="file-row">
-                                <input type="text" name="folder" class="file-path">
+                                <input type="text" id="folderPath" name="folder" class="file-path" readonly>
 
-                                <button type="button">Browse...</button>
+                                <button type="button" onclick="document.getElementById('folderPicker').click()">
+                                    Browse...
+                                </button>
+
+                                <input type="file" id="folderPicker" webkitdirectory hidden>
                             </div>
                         </td>
                     </tr>
+
 
                     <tr class="form-row">
                         <td class="label-cell">Hidden</td>
@@ -340,12 +346,18 @@
                         <td class="label-cell">Trash Delete Location</td>
                         <td>
                             <div class="file-row">
-                                <input type="text" name="trashDeleteLocation" class="file-path">
+                                <input type="text" id="trashLocationPath" name="trashDeleteLocation" class="file-path"
+                                    readonly>
 
-                                <button type="button">Browse...</button>
+                                <button type="button" onclick="document.getElementById('trashLocationPicker').click()">
+                                    Browse...
+                                </button>
+
+                                <input type="file" id="trashLocationPicker" webkitdirectory hidden>
                             </div>
                         </td>
                     </tr>
+
 
                     <tr class="form-row">
                         <td class="label-cell">Trash Delete Date</td>
@@ -368,14 +380,44 @@
 
     </div>
 
+
     <script>
+        // Filer
         const filerInput = document.getElementById('filer');
         const filerSelect = document.getElementById('filerUser');
 
         filerSelect.addEventListener('change', function () {
             filerInput.value = filerSelect.value;
         });
+
+        // Folder Browse
+        const folderPicker = document.getElementById('folderPicker');
+        const folderPath = document.getElementById('folderPath');
+
+        folderPicker.addEventListener('change', function () {
+            if (folderPicker.files.length > 0) {
+                const firstFile = folderPicker.files[0];
+                const folderName = firstFile.webkitRelativePath.split('/')[0];
+
+                folderPath.value = folderName;
+            }
+        });
+
+        // Trash Delete Location Browse
+        const trashLocationPicker = document.getElementById('trashLocationPicker');
+        const trashLocationPath = document.getElementById('trashLocationPath');
+
+        trashLocationPicker.addEventListener('change', function () {
+            if (trashLocationPicker.files.length > 0) {
+                const firstFile = trashLocationPicker.files[0];
+                const folderName = firstFile.webkitRelativePath.split('/')[0];
+
+                trashLocationPath.value = folderName;
+            }
+        });
     </script>
+
+
 </body>
 
 </html>
